@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- `head` contains global configurations of html -->
+<head>
+    <!-- `meta` defines metadata of the doc, like author, description, charset, etc.-->
+    <meta charset="UTF-8">
+    <meta name="author" content="SZQ">
+
+    <!-- `title` is necessary for a html. it's the title in search results, bookmarks, browser toolbar -->
+    <title>Basics of HTML</title>
+
+    <!-- only one `base` tag is permitted in a html.
+        `href` specifies the base path for all relative urls in the doc.
+        `target` specifies the default target for all links in the doc. -->
+    <base href="/Front-endPractice/basics/base.html" target="_blank">
+
+    <!-- `link` defines the relationship between the doc and external resources.
+        `rel` specifies the relationship type. -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- `style` defines the style of specified element -->
+    <style>
+        h1 {
+            color: green
+        }
+
+        p {
+            color: blue
+        }
+    </style>
+
+    <!-- use JS or other languages. define some actions for specified event.-->
+    <script>
+    </script>
+</head>
+
+<body>
+
+<!-- use `div` to design the layout. `table` is also feasible but deprecated.
+    `float` makes the division only take essential width. -->
+<div id="part1" style="width:350px; height:600px; float:left; background-color:antiquewhite;">
+    <!-- h1-h6, header tags
+        browser will use headers to build index of content-->
+    <h1>First-level header</h1>
+
+    <hr> <!-- horizontal line -->
+
+    <!-- paragraph tags -->
+    <p>It is a<br> <!-- single tag, add a blank line -->
+        paragraph.<br>
+        <strong>Bold</strong> <!-- make it bold --><br>
+        <em>Italic</em> <!-- make it italic --><br>
+        <a href="https://www.runoob.com/html/html-formatting.html">More formatting tags here</a>
+    </p>
+
+    <!-- target means where to open the page. `_blank` here refers to opening it in a new page -->
+    <a href="https://www.google.com" target="_blank">Search Engine Link</a> <!-- link -->
+
+    <!-- `id` creates a bookmark in the page -->
+    <a id="local">Bookmark</a>
+    <a href="#local" target="_self">Jump to Bookmark</a>
+
+    <!-- `image` `src` refers to the picture link.
+        `alt` refers to the alternative text when loading picture fails.-->
+    <img src="pic.png" width="258" height="39" decoding="async" alt="a picture here"><br>
+    <!-- if the value contains quotation marks, use apostrophe instead -->
+    <img src='a"bc"d.png' alt="explanation photo">
+</div>
+
+<div id="part2">
+    <h1>Table</h1>
+    <!-- table. setting `border` to 1 displays the border.
+     `caption` is the title of the table.-->
+    <table border="1">
+        <caption><a href="https://www.runoob.com/html/html-tables.html">More about Table</a></caption>
+        <tr>
+            <td>12</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>21</td>
+            <td>22</td>
+        </tr>
+    </table>
+</div>
+
+<div id="part3">
+    <h1>List</h1>
+    <!-- unordered list -->
+    <ul>
+        <li>UL1</li>
+        <li>UL2</li>
+        <li>UL3</li>
+    </ul>
+
+    <!-- ordered list -->
+    <ol>
+        <li>OL1</li>
+        <li>OL2</li>
+        <li>OL3</li>
+    </ol>
+
+    <!-- description list. you can create a multi-level list using it. -->
+    <dl>
+        <dt>Good</dt> <!-- term -->
+        <dd>- not bad</dd> <!-- description -->
+        <dt>Bad</dt>
+        <dd>- not good</dd>
+    </dl>
+</div>
+</body>
+</html>
