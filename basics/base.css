@@ -1,0 +1,22 @@
+/*
+    selector {property 1: value; property 2: value; ...}
+*/
+
+/* element tag, all elements with the same tag. */
+p {
+    color: #f63323;
+}
+
+/* id, a specified element */
+#part1 {
+    background-color: #00ff43;
+}
+
+/* class, a group of elements. */
+.class1 {
+    background-color: #00ff43;
+}
+ul.class1 {
+    background-color: #f63323;
+}
+
