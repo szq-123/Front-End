@@ -42,6 +42,34 @@
 <h1>CSS</h1>
 <table>
     <tr>
+        <td>types</td>
+        <td>inline > internal > external </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+
+<h1>JavaScript</h1>
+<table>
+    <tr>
         <td></td>
         <td></td>
     </tr>

@@ -4,19 +4,68 @@
 
 /* element tag, all elements with the same tag. */
 p {
-    color: #f63323;
-}
-
-/* id, a specified element */
-#part1 {
-    background-color: #00ff43;
+    color: blueviolet;
 }
 
 /* class, a group of elements. */
 .class1 {
     background-color: #00ff43;
 }
+
+/* only apply to the class belonging to unordered list. */
 ul.class1 {
     background-color: #f63323;
 }
 
+/* specify the style for multiple groups. */
+#part2, #part3 {
+}
+
+/* id, a specified element */
+#part1 {
+    /* write in a line as follow
+    background: #00ff43 url("google_favicon.png") repeat-y fixed left; */
+    background-color: #00ff43;
+    background-image: url("google_favicon.png");
+    background-repeat: repeat-y; /* how image fills the area */
+    background-attachment: scroll; /* actions of image when scrolling */
+    background-position: top left;
+
+    /* text */
+    color: black;
+    text-align: left;
+    text-decoration: none;
+    text-transform: capitalize;
+    text-indent: 10px;
+
+    /* font
+        font: normal 10px "Times New Roman" ; */
+    font-style: italic;
+    font-family: "Times New Roman", serif; /* the second is the alternative font when the first is unavailable. */
+    font-size: 1em;
+    font-weight: bold;
+}
+
+/* link style.
+    order has to be as follow. */
+
+/* unvisited links */
+a:link {
+    /* remove underscores under links */
+    text-decoration: none
+}
+
+/* visited links */
+a:visited {
+    text-decoration: none
+}
+
+/* when cursor is on the link */
+a:hover {
+    color: #f63323;
+    text-decoration: underline;
+}
+
+/* when click the link */
+a:active {
+}

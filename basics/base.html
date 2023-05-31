@@ -18,15 +18,11 @@
         `rel` specifies the relationship type. -->
     <link rel="stylesheet" href="base.css">
 
-    <!-- `style` defines the style of specified element.
-        it's better to use an external .css file to build doc's style.-->
+    <!-- internal style sheet.
+        `style` defines the style of specified element. -->
     <style>
         h1 {
             color: green
-        }
-
-        p {
-            color: blue
         }
     </style>
 </head>
@@ -34,7 +30,8 @@
 <body>
 
 <!-- use `div` to design the layout. `table` is also feasible but deprecated.
-    `float` makes the division only take essential width. -->
+    `float` makes the division only take essential width.
+    `style` here is an inline style sheet. -->
 <div id="part1" style="width:25%; height:800px; float:left; background-color:antiquewhite;">
     <!-- h1-h6, header tags
         browser will use headers to build index of content-->
