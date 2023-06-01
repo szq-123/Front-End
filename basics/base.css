@@ -69,3 +69,7 @@ a:hover {
 /* when click the link */
 a:active {
 }
+
+div {
+    border-radius: 1%;
+}

@@ -14,7 +14,8 @@
         `target` specifies the default target for all links in the doc. -->
     <base href="/Front-endPractice/basics/base.html" target="_blank">
 
-    <!-- `link` defines the relationship between the doc and external resources.
+    <!-- external style sheet.
+        `link` defines the relationship between the doc and external resources.
         `rel` specifies the relationship type. -->
     <link rel="stylesheet" href="base.css">
 
@@ -25,6 +26,10 @@
             color: green
         }
     </style>
+
+    <!-- external JS file.
+        use JS or other languages. define some actions for specified event.-->
+    <script src="base.js"></script>
 </head>
 
 <body>
@@ -36,16 +41,14 @@
     <!-- h1-h6, header tags
         browser will use headers to build index of content-->
     <h1>First-level header</h1>
+
+    <!-- `image` `src` refers to the picture link.
+    `alt` refers to the alternative text when loading picture fails.
+    if the value contains quotation marks, use apostrophe instead. -->
+    <img src="google_favicon.png" width="160" height="140" decoding="async" alt='a "google" here'><br>
+
     <a href="https://www.runoob.com/html/html-colorvalues.html">More color here</a>
     <hr> <!-- horizontal line -->
-
-    <!-- paragraph tags -->
-    <p>It is a<br> <!-- single tag, add a blank line -->
-        paragraph.<br>
-        <strong>Bold</strong> <!-- make it bold --><br>
-        <em>Italic</em> <!-- make it italic --><br>
-        <a href="https://www.runoob.com/html/html-formatting.html">More formatting tags here</a>
-    </p>
 
     <!-- target means where to open the page. `_blank` here refers to opening it in a new page -->
     <a href="https://www.google.com" target="_blank">Search Engine Link</a> <!-- link -->
@@ -54,10 +57,28 @@
     <a id="local">Bookmark</a>
     <a href="#local" target="_self">Jump to Bookmark</a>
 
-    <!-- `image` `src` refers to the picture link.
-        `alt` refers to the alternative text when loading picture fails.
-        if the value contains quotation marks, use apostrophe instead. -->
-    <img src="google_favicon.png" width="160" height="140" decoding="async" alt='a "google" here'><br>
+    <!-- paragraph tags -->
+    <p>
+        It is a<br> <!-- single tag, add a blank line -->
+        paragraph.<br>
+        <strong>Bold</strong> <!-- make it bold --><br>
+        <em>Italic</em> <!-- make it italic --><br>
+        <a href="https://www.runoob.com/html/html-formatting.html">More formatting tags here</a>
+    </p>
+
+    <!-- internal script -->
+    <script>
+        document.write("it's a line written by JS<br>")
+    </script>
+
+    <button type="button" onclick="myAlert()">Run your internal JS</button><br>
+    <script>
+        function myAlert() {
+            window.alert("Your first JS function!")
+        }
+    </script>
+
+    <button type="button" onclick="debugFunc()">Debug</button>
 </div>
 
 <div id="part2" class="class1" style="width:25%; height:500px; float:left; background-color:darkgray;">
@@ -104,9 +125,9 @@
 
 <div id="part4" style="width:25%; height:500px; float:left; background-color:rosybrown;">
     <h1>Form</h1>
-    <form action="" method="post">
-        Name: <label><input type="text" name="name"></label><br>
-        Password: <label><input type="password" name="pwd"></label><br>
+    <form action="" method="post" target="_self">
+        Name: <label><input type="text" name="name" required></label><br>
+        Password: <label><input type="password" name="pwd" required></label><br>
 
         Gender: <!-- type `radio` is radio button-->
         <label><input type="radio" name="gender">Male</label>
@@ -117,11 +138,18 @@
         <label><input type="checkbox" name="hobbies">Music</label>
         <label><input type="checkbox" name="hobbies">Sports</label><br>
 
-        <label><input type="submit" value="OK"></label>
+        Bank Name:
+        <label>
+            <select name="bank-name" required>
+                <option value="gong_shang">工商银行</option>
+                <option value="jian_she">建设银行</option>
+                <option value="nong_ye">农业银行</option>
+                <option value="you_chu">邮储银行</option>
+                <option value="none">无</option>
+            </select>
+        </label><br>
 
-        <!-- use JS or other languages. define some actions for specified event.-->
-        <script>
-        </script>
+        <label><input type="submit" value="OK" onclick="submitForm()"></label>
     </form>
 </div>
 

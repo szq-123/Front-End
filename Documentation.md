@@ -70,8 +70,11 @@
 <h1>JavaScript</h1>
 <table>
     <tr>
-        <td></td>
-        <td></td>
+        <td>Overview</td>
+        <td>
+            1. case-sensitive<br>
+            2. dynamically typed
+        </td>
     </tr>
     <tr>
         <td></td>
