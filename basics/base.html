@@ -34,10 +34,13 @@
 
 <body>
 
+<div class="navigation-bar">
+</div>
+
 <!-- use `div` to design the layout. `table` is also feasible but deprecated.
     `float` makes the division only take essential width.
     `style` here is an inline style sheet. -->
-<div id="part1" style="width:25%; height:800px; float:left; background-color:antiquewhite;">
+<div id="part1" class="mid-div" style="float:left; background-color:antiquewhite;">
     <!-- h1-h6, header tags
         browser will use headers to build index of content-->
     <h1>First-level header</h1>
@@ -81,7 +84,7 @@
     <button type="button" onclick="debugFunc()">Debug</button>
 </div>
 
-<div id="part2" class="class1" style="width:25%; height:500px; float:left; background-color:darkgray;">
+<div id="part2" class="mid-div" style="float:left; background-color:darkgray;">
     <h1>Table</h1>
     <!-- table. setting `border` to 1 displays the border.
      `caption` is the title of the table.-->
@@ -98,7 +101,7 @@
     </table>
 </div>
 
-<div id="part3" style="width:25%; height:500px; float:left; background-color:beige;">
+<div id="part3" class="mid-div" style="float:left; background-color:beige;">
     <h1>List</h1>
     <!-- unordered list -->
     <ul class="class1">
@@ -123,7 +126,7 @@
     </dl>
 </div>
 
-<div id="part4" style="width:25%; height:500px; float:left; background-color:rosybrown;">
+<div id="part4" class="mid-div" style="float:left; background-color:rosybrown;">
     <h1>Form</h1>
     <form action="" method="post" target="_self">
         Name: <label><input type="text" name="name" required></label><br>
@@ -153,12 +156,12 @@
     </form>
 </div>
 
-<div id="part5" style="width:75%; height:300px; float:left; background-color:gainsboro;">
+<div id="part5" style="height:500px; background-color:gainsboro;">
     <h1>Frame</h1>
     <!-- `iframe` allows embed another page in current page. -->
-    <iframe src="https://www.runoob.com/html/html-iframes.html" width="45%" height="100px"></iframe>
+    <iframe src="https://www.runoob.com/html/html-iframes.html" width="49%"></iframe>
 
-    <iframe src="demo_iframe.html" name="iframe_a" width="45%" height="100px" style="float:right"></iframe>
+    <iframe src="demo_iframe.html" name="iframe_a" width="49%" style="float:right"></iframe>
     <p><a href="https://www.runoob.com" target="iframe_a" rel="noopener">RUNOOB.COM</a></p>
 </div>
 </body>

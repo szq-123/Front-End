@@ -8,7 +8,8 @@ function testOutput() {
     window.alert("hello") // pop-up
     document.write("hello") // write to a html
     document.getElementById("part1").innerHTML = "hello" // write to an element
-    console.log("hello debug") // debugging in browser
+
+    console.log("hello debug") // you can debug your javascript code in browser.
 }
 
 function testDataTypes() {
@@ -19,7 +20,7 @@ function testDataTypes() {
     let a7 = true // boolean
     let a8 = null / null
 
-    let a12 = new Date(2022,1,1,8,8,8,0)
+    let a12 = new Date(2022, 1, 1, 8, 8, 8, 0)
     let a13 = new Date(1685634507913) // measured in ms.
     let a14 = new Date("2023-06-01 23:48:19")
     a14.getDate()
@@ -34,7 +35,7 @@ function testDataTypes() {
 
     // datatype conversion
     s1 = String(4)
-    s2 = String(4+5)
+    s2 = String(4 + 5)
     s3 = String(new Date())
     i1 = Number("")
     i2 = Number("3.14")
@@ -125,7 +126,7 @@ function testFlowControlStatement() {
             window.alert(a1)
     }
 
-    for (i=0;i<10;i++) {
+    for (i = 0; i < 10; i++) {
         if (i == 4) {
             continue
         }
@@ -139,7 +140,7 @@ function testFlowControlStatement() {
     for (let v in pool) {
         window.alert(v) // 1, 2, 3, 4
     }
-    let dict = {a:'a', b:'b', c:'c'}
+    let dict = {a: 'a', b: 'b', c: 'c'}
     for (let key in dict) {
         window.alert(dict[key])
     }
@@ -169,5 +170,34 @@ function testRegularExpression() {
 }
 
 function testException() {
-    
+    let x
+    try {
+        if (x == 0) {
+            throw "input value can not be zero" // raise an exception
+        }
+    } catch (err) { // catch exception
+        window.alert(err)
+    } finally { // inevitably execute
+        window.alert("logic has been executed")
+    }
+}
+
+function testCreateVariable() {
+    window.alert(y) // undefined
+    var y = 10
+}
+
+function testStrict() {
+    // strict mode
+    "use strict"
+    e = 3.12 // can not set value to a variable has not been declared.
+}
+
+function testDOM() {
+    // visit form
+    var x = document.forms["myForm"]["user_name"].value;
+    if (x == null || x == "") {
+        alert("please input your username");
+        return false;
+    }
 }

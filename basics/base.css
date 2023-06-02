@@ -70,6 +70,13 @@ a:hover {
 a:active {
 }
 
-div {
+.mid-div {
     border-radius: 1%;
+    width: 25%;
+    height: 500px;
+}
+
+.navigation-bar {
+    height: 60px;
+    background-color: black;
 }
