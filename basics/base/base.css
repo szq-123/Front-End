@@ -18,11 +18,11 @@ ul.class1 {
 }
 
 /* specify the style for multiple groups. */
-#part2, #part3 {
+#table-part, #list-part {
 }
 
 /* id, a specified element */
-#part1 {
+#trifle {
     /* write in a line as follow
     background: #00ff43 url("google_favicon.png") repeat-y fixed left; */
     background-color: #00ff43;
@@ -71,12 +71,19 @@ a:active {
 }
 
 .mid-div {
+    /* circle */
     border-radius: 1%;
-    width: 25%;
+    width: 20%;
     height: 500px;
+
+    /* margin creates space around elements */
+    margin: 20px auto;
+
+    /* float makes the division only take essential width */
+    float: left;
 }
 
 .navigation-bar {
     height: 60px;
-    background-color: black;
+    background-color: pink;
 }

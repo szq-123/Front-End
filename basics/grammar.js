@@ -7,7 +7,7 @@ function testOutput() {
     // when trying to output a variable, it's automatically transformed to string.
     window.alert("hello") // pop-up
     document.write("hello") // write to a html
-    document.getElementById("part1").innerHTML = "hello" // write to an element
+    document.getElementById("trifle").innerHTML = "hello" // write to an element
 
     console.log("hello debug") // you can debug your javascript code in browser.
 }
@@ -87,7 +87,7 @@ function testString() {
     }
 
     html += `</ul>`;
-    document.getElementById('part1').innerHTML = html
+    document.getElementById('trifle').innerHTML = html
 }
 
 function testOperator() {

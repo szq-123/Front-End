@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- `head` contains global configurations of html -->
+<head>
+    <!-- `meta` defines metadata of the doc, like author, description, charset, etc.-->
+    <meta charset="UTF-8">
+    <meta name="author" content="SZQ">
+
+    <!-- `title` is necessary for a html. it's the title in search results, bookmarks, browser toolbar -->
+    <title>Basics of HTML</title>
+
+    <!-- only one `base` tag is permitted in a html.
+        `href` specifies the base path for all relative urls in the doc.
+        `target` specifies the default target for all links in the doc. -->
+    <base href="/Front-endPractice/basics/base.html" target="_blank">
+
+    <!-- external style sheet.
+        `link` defines the relationship between the doc and external resources.
+        `rel` specifies the relationship type. -->
+    <link rel="stylesheet" href="base/base.css">
+
+    <!-- internal style sheet.
+        `style` defines the style of specified element. -->
+    <style>
+        h1 {
+            color: green
+        }
+    </style>
+
+    <!-- external JS file.
+        use JS or other languages. define some actions for specified event.-->
+    <script src="base/base.js"></script>
+</head>
+
+<body>
+
+<div class="navigation-bar">
+</div>
+
+<!-- use `div` to design the layout. `table` is also feasible but deprecated.
+    `style` here is an inline style sheet. -->
+<div style="height: 500px; ">
+    <div id="trifle" class="mid-div" style="background-color:antiquewhite;">
+        <!-- h1-h6, header tags
+            browser will use headers to build index of content-->
+        <h1>First-level header</h1>
+
+        <!-- `image` `src` refers to the picture link.
+        `alt` refers to the alternative text when loading picture fails.
+        if the value contains quotation marks, use apostrophe instead. -->
+        <img src="base/google_favicon.png" width="160" height="140" decoding="async" alt='a "google" here'><br>
+
+        <a href="https://www.runoob.com/html/html-colorvalues.html">More color here</a>
+        <hr> <!-- horizontal line -->
+
+        <!-- target means where to open the page. `_blank` here refers to opening it in a new page -->
+        <a href="https://www.google.com" target="_blank">Search Engine Link</a> <!-- link -->
+
+        <!-- `id` creates a bookmark in the page -->
+        <a id="local">Bookmark</a>
+        <a href="#local" target="_self">Jump to Bookmark</a>
+
+        <!-- paragraph tags -->
+        <p>
+            It is a<br> <!-- single tag, add a blank line -->
+            paragraph.<br>
+            <strong>Bold</strong> <!-- make it bold --><br>
+            <em>Italic</em> <!-- make it italic --><br>
+            <a href="https://www.runoob.com/html/html-formatting.html">More formatting tags here</a>
+        </p>
+
+        <!-- internal script -->
+        <script>
+            document.write("it's a line written by JS<br>")
+        </script>
+
+        <button type="button" onclick="myAlert()">Run your internal JS</button>
+        <br>
+        <script>
+            function myAlert() {
+                window.alert("Your first JS function!")
+            }
+        </script>
+
+        <button type="button" onclick="debugFunc()">Debug</button>
+    </div>
+
+    <div id="table-part" class="mid-div" style="background-color:darkgray;">
+        <h1>Table</h1>
+        <!-- table. setting `border` to 1 displays the border.
+         `caption` is the title of the table.-->
+        <table border="1">
+            <caption><a href="https://www.runoob.com/html/html-tables.html">More about Table</a></caption>
+            <tr>
+                <td>12</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>22</td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="list-part" class="mid-div" style="background-color:beige;">
+        <h1>List</h1>
+        <!-- unordered list -->
+        <ul class="class1">
+            <li>UL1</li>
+            <li>UL2</li>
+            <li>UL3</li>
+        </ul>
+
+        <!-- ordered list -->
+        <ol>
+            <li>OL1</li>
+            <li>OL2</li>
+            <li>OL3</li>
+        </ol>
+
+        <!-- description list. you can create a multi-level list using it. -->
+        <dl>
+            <dt>Good</dt> <!-- term -->
+            <dd>- not bad</dd> <!-- description -->
+            <dt>Bad</dt>
+            <dd>- not good</dd>
+        </dl>
+    </div>
+
+    <div id="form-part" class="mid-div" style="background-color:rosybrown;">
+        <h1>Form</h1>
+        <form action="" method="post" target="_self">
+            Name: <label><input type="text" name="name" required></label><br>
+            Password: <label><input type="password" name="pwd" required></label><br>
+
+            Gender: <!-- type `radio` is radio button-->
+            <label><input type="radio" name="gender">Male</label>
+            <label><input type="radio" name="gender">Female</label><br>
+
+            Hobbies: <!-- type `checkbox` -->
+            <label><input type="checkbox" name="hobbies">Porn</label>
+            <label><input type="checkbox" name="hobbies">Music</label>
+            <label><input type="checkbox" name="hobbies">Sports</label><br>
+
+            Bank Name:
+            <label>
+                <select name="bank-name" required>
+                    <option value="gong_shang">工商银行</option>
+                    <option value="jian_she">建设银行</option>
+                    <option value="nong_ye">农业银行</option>
+                    <option value="you_chu">邮储银行</option>
+                    <option value="none">无</option>
+                </select>
+            </label><br>
+
+            <label><input type="submit" value="OK" onclick="submitForm()"></label>
+        </form>
+    </div>
+</div>
+
+<div id="frame-part" style="height:500px; background-color:gainsboro; float:left;">
+    <h1>Frame</h1>
+    <!-- `iframe` allows embed another page in current page. -->
+    <iframe src="https://www.runoob.com/html/html-iframes.html" width="49%"></iframe>
+
+    <iframe src="demo_iframe.html" name="iframe_a" width="49%" style="float:right"></iframe>
+    <p><a href="https://www.runoob.com" target="iframe_a" rel="noopener">RUNOOB.COM</a></p>
+</div>
+</body>
+</html>
