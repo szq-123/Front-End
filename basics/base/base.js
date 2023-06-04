@@ -1,11 +1,14 @@
 function debugFunc() {
-    let d = new Date(2022,1,1,8,8,8,0)
+    let d = new Date(2022, 1, 1, 8, 8, 8, 0)
     window.alert(d)
 }
 
 function submitForm() {
     window.alert("Successfully committed")
 }
+
+button = document.getElementById("button")
+img = document.getElementById("img")
 
 function ajaxPromise() {
     return new Promise((resolve, reject) => {
@@ -23,3 +26,12 @@ function ajaxPromise() {
         xhr.send(null)
     })
 }
+
+button.addEventListener('click', () => {
+    promise = ajaxPromise()
+    promise.then(responseURL => {
+        img.src = responseURL
+    }).catch(statusText => {
+        img.alt = statusText
+    })
+})
