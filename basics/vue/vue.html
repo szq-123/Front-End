@@ -3,8 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Vue Introduction</title>
+    <style>
+        .nav {
+            height: 50px;
+            background-color: lightpink;
+        }
+
+        .title {
+            width: 100px;
+            float: left;
+            margin: auto 20px;
+        }
+
+        .nav-item {
+            float: left;
+            margin: auto 20px;
+        }
+
+        .ul {
+            list-style: none;
+        }
+    </style>
 </head>
 <body>
+<div class="nav" id="nav">
+    <h2 class="title">My Vue</h2>
+    <ul class="ul">
+        <li class="nav-item" v-for="link in links">
+            <a :href="link.url" :title="`${link.name} Page`">{{link.name}}</a>
+        </li>
+    </ul>
+</div>
 
 <div id="app">
     {{ message }}
@@ -12,7 +41,7 @@
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script>
-    const { createApp } = Vue
+    const {createApp} = Vue
 
     createApp({
         data() {
@@ -21,6 +50,12 @@
             }
         }
     }).mount('#app')
+
+    createApp({
+        data() {
+            return {links: [{name: 'Home', url: ''}, {name: 'About', url: ''}, {name: 'Contact', url: ''}]};
+        }
+    }).mount('#nav')
 </script>
 
 </body>
