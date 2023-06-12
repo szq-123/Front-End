@@ -2,6 +2,10 @@
   <div class="about">
     <h1>This is an about page</h1>
     <button @click="increment">Count is: {{ count }}</button>
+    <hr>
+    computed: {{changeStr}}
+    <hr>
+    <input v-model="changeStr">
   </div>
 </template>
 
@@ -13,7 +17,8 @@ export default {
   // and will be exposed on `this`.
   data() {
     return {
-      count: 0
+      count: 0,
+      cal: 0,
     }
   },
 
@@ -30,6 +35,17 @@ export default {
   // This function will be called when the component is mounted.
   mounted() {
     console.log(`The initial count is ${this.count}.`)
+  },
+
+  computed: {
+    changeStr : {
+      get(){
+        return this.cal
+      },
+      set(val){
+        this.cal = val
+      }
+    }
   }
 }
 </script>

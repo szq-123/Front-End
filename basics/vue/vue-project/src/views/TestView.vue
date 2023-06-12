@@ -9,7 +9,7 @@
 
 <script setup>
 // composition API
-import {reactive, ref} from "vue";
+import {computed, reactive, ref, watch} from "vue";
 
 // can not change data in the template
 let str = '你好'
@@ -41,6 +41,20 @@ const ClickNum = function () {
   num++
   alert(num)
 }
+
+let changeStr = computed({
+  get() {
+  }, set(val) {
+  }
+})
+
+watch(str2, (newVal, oldVal) => {
+  console.log(oldVal, newVal)
+}, {immediate: true})
+
+watch(()=>str2.display, (newVal, oldVal) => {
+  console.log(oldVal, newVal)
+}, {deep: true})
 </script>
 
 <style>

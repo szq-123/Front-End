@@ -201,3 +201,11 @@ function testDOM() {
         return false;
     }
 }
+
+function testFuncWithParams(p1, p2, p3) {
+    return p1 + p2 + p3
+}
+
+function testFuncWithDefaultParams(p1=1, p2, p3) {
+    return p1 + p2 + p3
+}
