@@ -9,15 +9,21 @@
 
 <script setup>
 // composition API
-import {computed, reactive, ref, watch} from "vue";
+import {computed, onMounted, reactive, ref, watch} from "vue";
 
 // can not change data in the template
-let str = '你好'
+let str = '你好', displayStr = '你好'
 let counter = 0
 const ClickStr = function () {
-  str += counter
+  displayStr = str + counter
   counter++
 }
+
+// lifecycle hooks
+// compared to options API, usually adding an 'on' to the head of func name.
+onMounted(()=>{
+  console.log(displayStr)
+})
 
 // dynamically render data in the template using `ref`
 let str1 = ref({raw: '我好', display: '我好'})
@@ -52,7 +58,7 @@ watch(str2, (newVal, oldVal) => {
   console.log(oldVal, newVal)
 }, {immediate: true})
 
-watch(()=>str2.display, (newVal, oldVal) => {
+watch(() => str2.display, (newVal, oldVal) => {
   console.log(oldVal, newVal)
 }, {deep: true})
 </script>

@@ -30,8 +30,8 @@ export default {
     }
   },
 
-  // Lifecycle hooks are called at different stages
-  // of a component's lifecycle.
+  // Lifecycle hooks
+  // are called at different stages of a component's lifecycle.
   // This function will be called when the component is mounted.
   mounted() {
     console.log(`The initial count is ${this.count}.`)
