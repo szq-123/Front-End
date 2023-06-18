@@ -2,23 +2,32 @@
   <div class="about">
     <h1>This is an about page</h1>
     <button @click="increment">Count is: {{ count }}</button>
-    <hr>
+    <br><br>
     computed: {{changeStr}}
-    <hr>
+    <br><br>
     <input v-model="changeStr">
+    <br><br>
+    <!-- bind msg-->
+    <AboutSubcomponent :msg="msg"></AboutSubcomponent>
   </div>
 </template>
 
 <script>
-// options API
+// options API, usually used in Vue2.
 // export a component combines multiple options.
+import AboutSubcomponent from "@/components/AboutSubcomponent.vue";
+
 export default {
+  // specify subcomponents.
+  components: {AboutSubcomponent},
+
   // Properties returned from data() become reactive state
   // and will be exposed on `this`.
   data() {
     return {
       count: 0,
       cal: 0,
+      msg: "Message delivered from About to AboutSubcomponent",
     }
   },
 
@@ -51,11 +60,11 @@ export default {
 </script>
 
 <style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
+/*@media (min-width: 1024px) {*/
+/*  .about {*/
+/*    min-height: 100vh;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*  }*/
+/*}*/
 </style>

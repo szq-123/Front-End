@@ -1,6 +1,12 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+// HelloWorld is the subcomponent of App.
 import HelloWorld from './components/HelloWorld.vue'
+
+import { RouterLink, RouterView } from 'vue-router'
+import {ref} from "vue";
+
+// define a dynamic variable for subcomponent.
+let msg1 = ref("Great!")
 </script>
 
 <template>
@@ -8,7 +14,7 @@ import HelloWorld from './components/HelloWorld.vue'
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld msg="You did it!" :msg1="msg1"/>
 
       <nav>
         <RouterLink to="/">Home</RouterLink>

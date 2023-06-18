@@ -4,12 +4,17 @@
     <button @click="ClickStr1">{{ str1.display }}</button>
     <button @click="ClickStr2">{{ str2.display }}</button>
     <button @click="ClickNum">show Num</button>
+    <br><br>
+    <router-link to="/">Jump to homepage</router-link>
+    <br><br>
+    <button @click="goAbout">Jump to About page</button>
   </div>
 </template>
 
 <script setup>
-// composition API
+// composition API, usually used in Vue3.
 import {computed, onMounted, reactive, ref, watch} from "vue";
+import {useRoute, useRouter} from "vue-router";
 
 // can not change data in the template
 let str = '你好', displayStr = '你好'
@@ -61,14 +66,21 @@ watch(str2, (newVal, oldVal) => {
 watch(() => str2.display, (newVal, oldVal) => {
   console.log(oldVal, newVal)
 }, {deep: true})
+
+// creat link
+let router = useRouter()
+let route = useRoute()
+const goAbout = ()=> {
+  router.push('/about')
+}
 </script>
 
 <style>
-@media (min-width: 1024px) {
-  .test {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
+/*@media (min-width: 1024px) {*/
+/*  .test {*/
+/*    min-height: 100vh;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*  }*/
+/*}*/
 </style>

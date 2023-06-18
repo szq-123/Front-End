@@ -21,12 +21,12 @@ const router = createRouter({
         {
             path: '/test',
             name: 'test',
+            // route hooks. others like beforeEach and so on.
             beforeEnter: (to, from, next) => {
                 if (from.path === '/about') {
-                    window.alert('Go to /test from /about is not allowed')
-                } else {
-                    next()
+                    window.alert('Go to /test from /about')
                 }
+                next()
             },
             // route level code-splitting
             // this generates a separate chunk (About.[hash].js) for this route
