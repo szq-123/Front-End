@@ -1,6 +1,7 @@
 <script setup>
 // specify variables come from parental components.
-defineProps({
+// variables defined in props are read-only.
+const props = defineProps({
   msg: {
     type: String,
     required: true
@@ -8,8 +9,25 @@ defineProps({
   msg1: {
     type: String,
     default: "Fabulous!",
+  },
+  num: {
+    type: Number,
+    default: 1,
   }
 })
+
+// define events to deliver value to parents.
+const emit = defineEmits(
+    ['hello-world-praise', 'update:num']
+)
+
+const deliverPraise = () => {
+  console.log('deliverPraise')
+  emit('hello-world-praise', 'You are the Number One!')
+
+  // update num sent by parent.
+  emit('update:num', 100)
+}
 </script>
 
 <template>
@@ -19,7 +37,9 @@ defineProps({
       You’ve successfully created a project with
       <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
       <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
+      <button @click="deliverPraise">Praise yourself!</button>
     </h3>
+    {{num}}
   </div>
 </template>
 

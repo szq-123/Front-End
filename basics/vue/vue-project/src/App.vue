@@ -2,20 +2,30 @@
 // HelloWorld is the subcomponent of App.
 import HelloWorld from './components/HelloWorld.vue'
 
-import { RouterLink, RouterView } from 'vue-router'
+import {RouterLink, RouterView} from 'vue-router'
 import {ref} from "vue";
 
 // define a dynamic variable for subcomponent.
 let msg1 = ref("Great!")
+
+// method get number from subcomponent.
+let praise = ref("")
+const getPraise = (good) => {
+  praise.value = good
+  console.log('getPraise', praise.value)
+}
+
+// bidirectional value delivery. recipient can modify the value.
+let num = ref(0)
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125"/>
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" :msg1="msg1"/>
-
+      <HelloWorld msg="You did it!" :msg1="msg1" @hello-world-praise="getPraise" v-model:num="num"/>
+      {{ praise }}
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
@@ -24,7 +34,7 @@ let msg1 = ref("Great!")
     </div>
   </header>
 
-  <RouterView />
+  <RouterView/>
 </template>
 
 <style scoped>

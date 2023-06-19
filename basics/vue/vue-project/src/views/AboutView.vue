@@ -3,12 +3,16 @@
     <h1>This is an about page</h1>
     <button @click="increment">Count is: {{ count }}</button>
     <br><br>
-    computed: {{changeStr}}
+    computed: {{ changeStr }}
     <br><br>
     <input v-model="changeStr">
     <br><br>
     <!-- bind msg-->
-    <AboutSubcomponent :msg="msg"></AboutSubcomponent>
+    <AboutSubcomponent :msg="msg" @parent="getNum"></AboutSubcomponent>
+    <hr>
+    Number delivered from subcomponent: {{this.num}}
+    <hr>
+    <AboutSubcomponent1></AboutSubcomponent1>
   </div>
 </template>
 
@@ -16,10 +20,11 @@
 // options API, usually used in Vue2.
 // export a component combines multiple options.
 import AboutSubcomponent from "@/components/AboutSubcomponent.vue";
+import AboutSubcomponent1 from "@/components/AboutSubcomponent1.vue";
 
 export default {
   // specify subcomponents.
-  components: {AboutSubcomponent},
+  components: {AboutSubcomponent1, AboutSubcomponent},
 
   // Properties returned from data() become reactive state
   // and will be exposed on `this`.
@@ -28,6 +33,7 @@ export default {
       count: 0,
       cal: 0,
       msg: "Message delivered from About to AboutSubcomponent",
+      num: 0,
     }
   },
 
@@ -36,6 +42,9 @@ export default {
   methods: {
     increment() {
       this.count++
+    },
+    getNum(num) {
+      this.num = num
     }
   },
 
@@ -47,11 +56,11 @@ export default {
   },
 
   computed: {
-    changeStr : {
-      get(){
+    changeStr: {
+      get() {
         return this.cal
       },
-      set(val){
+      set(val) {
         this.cal = val
       }
     }
