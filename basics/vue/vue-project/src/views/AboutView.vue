@@ -2,17 +2,22 @@
   <div class="about">
     <h1>This is an about page</h1>
     <button @click="increment">Count is: {{ count }}</button>
-    <br><br>
+    <hr>
     computed: {{ changeStr }}
-    <br><br>
+    <hr>
     <input v-model="changeStr">
-    <br><br>
-    <!-- bind msg-->
+    <hr>
+    <!-- bind msg -->
     <AboutSubcomponent :msg="msg" @parent="getNum"></AboutSubcomponent>
     <hr>
-    Number delivered from subcomponent: {{this.num}}
+    Number delivered from subcomponent: {{ this.num }}
     <hr>
-    <AboutSubcomponent1></AboutSubcomponent1>
+    <AboutSubcomponent1>
+      <template v-slot:slot1>Hello My slot1</template><br>
+      Hello to anonymous slot
+      <template v-slot:[dynamicSlot]><br>The dynamic slot</template>
+    </AboutSubcomponent1>
+    <div id="about-teleport"></div>
   </div>
 </template>
 
@@ -34,6 +39,7 @@ export default {
       cal: 0,
       msg: "Message delivered from About to AboutSubcomponent",
       num: 0,
+      dynamicSlot: 'slot3',
     }
   },
 

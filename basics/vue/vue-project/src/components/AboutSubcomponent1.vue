@@ -1,6 +1,18 @@
 <template>
   <div>
-    Get greeting from My dear Bro: <span class="about-subcomponent-span">{{ greeting }}</span>
+    Get greeting from My dear Bro: <span class="about-subcomponent-span">{{ greeting }}</span><br>
+    <!-- named slots -->
+    <slot name="slot1"></slot>
+
+    <!-- anonymous slots -->
+    <slot></slot>
+    <slot></slot>
+
+    <slot name="slot2"></slot>
+    <slot name="slot3"></slot>
+
+    <!-- transmit content to an element using selector -->
+    <teleport to="#about-teleport">send me to about!</teleport>
   </div>
 </template>
 
