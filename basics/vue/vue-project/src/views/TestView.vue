@@ -4,17 +4,37 @@
     <button @click="ClickStr1">{{ str1.display }}</button>
     <button @click="ClickStr2">{{ str2.display }}</button>
     <button @click="ClickNum">show Num</button>
-    <br><br>
+    <br>
     <router-link to="/">Jump to homepage</router-link>
-    <br><br>
+    <br>
     <button @click="goAbout">Jump to About page</button>
+    <br>
+
+    <ul>
+      <li v-for="(item,index) in tabList" :key="index" @click="changeTab(index)">{{ item.name }}</li>
+    </ul>
+    <component :is="curComponent.com"></component>
+
+    <TestAsyncSub></TestAsyncSub>
+    <div ref="target">
+      <TestAsyncSub1 v-if="targetIsVisible"></TestAsyncSub1>
+    </div>
   </div>
 </template>
 
 <script setup>
 // composition API, usually used in Vue3.
-import {computed, onMounted, reactive, ref, watch} from "vue";
+import {useIntersectionObserver} from '@vueuse/core'
+import {computed, defineAsyncComponent, markRaw, onMounted, reactive, ref, watch} from "vue";
 import {useRoute, useRouter} from "vue-router";
+import TestSub from "@/components/TestSub.vue";
+import TestSub1 from "@/components/TestSub1.vue";
+import TestAsyncSub from "@/components/TestAsyncSub.vue";
+
+// asynchronous component
+const TestAsyncSub1 = defineAsyncComponent(() => {
+  import('@/components/TestAsyncSub1.vue')
+})
 
 // can not change data in the template
 let str = '你好', displayStr = '你好'
@@ -26,7 +46,7 @@ const ClickStr = function () {
 
 // lifecycle hooks
 // compared to options API, usually adding an 'on' to the head of func name.
-onMounted(()=>{
+onMounted(() => {
   console.log(displayStr)
 })
 
@@ -70,9 +90,31 @@ watch(() => str2.display, (newVal, oldVal) => {
 // creat link
 let router = useRouter()
 let route = useRoute()
-const goAbout = ()=> {
+const goAbout = () => {
   router.push('/about')
 }
+
+// dynamic component
+let tabList = ref([
+  {name: 'TestSub', com: markRaw(TestSub)},
+  {name: 'TestSub1', com: markRaw(TestSub1)}
+])
+let curComponent = ref({com: tabList.value[0].com})
+const changeTab = (index) => {
+  if (index < tabList.value.length) {
+    curComponent.value.com = tabList.value[index].com
+  }
+}
+
+const target = ref(null)
+const targetIsVisible = ref(false)
+
+const {stop} = useIntersectionObserver(
+    target,
+    ([{isIntersecting}], observerElement) => {
+      targetIsVisible.value = isIntersecting
+    },
+)
 </script>
 
 <style>
